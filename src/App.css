@@ -1,11 +1,13 @@
 .App {
-    width: 80%;
     background-color: aliceblue;
+}
+
+.center-width {
+    width: 40%;
 }
 
 .App header .btn {
     color: white;
-    width: 80%;
 }
 
 .App {
@@ -31,6 +33,27 @@
     font-size: 110%;
 }
 
-.reminder {
+.task.reminder {
     border-left: 5px solid green !important;
+}
+
+.add-form {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+
+.add-form .form-control {
+    border: 2px solid grey;
+}
+
+.add-form .form-button {
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+.add-form .form-button:hover {
+    color: whitesmoke;
 }
