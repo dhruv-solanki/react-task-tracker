@@ -18,7 +18,7 @@
 }
 
 .App .card {
-    background-color: white;
+    background-color: seashell;
 }
 
 .delete-icon {
@@ -41,7 +41,7 @@
     border: 1px solid grey;
     border-radius: 5px;
     padding: 10px;
-    background-color: antiquewhite;
+    background-color: seashell;
 }
 
 .add-form .form-control {
@@ -56,4 +56,28 @@
 
 .add-form .form-button:hover {
     color: whitesmoke;
+}
+
+.App p {
+    margin: 0;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer a, .about a {
+    text-decoration: none;
+}
+
+.about {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    background-color: seashell;
+}
+
+.about .developer {
+    color: blueviolet;
 }

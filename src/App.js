@@ -1,9 +1,14 @@
 import './App.css';
 import { Header } from './Components/Header';
+import { Footer } from './Components/Footer';
+
+import { About } from './Components/About';
+
 import { Tasks } from './Components/Tasks';
 import { AddTask } from './Components/AddTask';
 
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
@@ -85,19 +90,29 @@ function App() {
 
   return (
     <div className="App d-flex justify-content-center mt-5 pt-3 pb-3 container">
-      <div className='center-width'>
-        <Header 
-          onAdd={() => setShowAddTask(!showAddTask)} 
-          showAddTask={showAddTask}
-        />
-        { showAddTask &&
-          <AddTask onAdd={addTask}/>
-        }
-        { tasks.length !== 0 ? 
-          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 
-          <h5>No tasks to show</h5>
-        }
-      </div>
+      <Router>
+        <div className='center-width'>
+          <Header 
+            onAdd={() => setShowAddTask(!showAddTask)} 
+            showAddTask={showAddTask}
+          />
+          <Routes>
+            <Route path='/' element={
+              <div>
+                { showAddTask &&
+                  <AddTask onAdd={addTask}/>
+                }
+                { tasks.length !== 0 ? 
+                  <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 
+                  <h5>No tasks to show</h5>
+                }
+              </div>
+            }/>
+            <Route path='/about' element={<About />}/>
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
     </div>
   );
 }
