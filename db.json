@@ -9,7 +9,7 @@
     {
       "text": "Complete ReactJS crash course.",
       "day": "Friday, 6:00 PM",
-      "reminder": true,
+      "reminder": false,
       "id": 2
     }
   ]
