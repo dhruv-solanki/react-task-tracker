@@ -5,12 +5,6 @@
       "text": "Learn ReactJS",
       "day": "March 31, 2022 at 5:00 PM",
       "reminder": true
-    },
-    {
-      "id": 2,
-      "text": "Read a new book",
-      "day": "March 30, 2022 at 09:30 AM",
-      "reminder": false
     }
   ]
 }

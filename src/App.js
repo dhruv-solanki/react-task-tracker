@@ -21,19 +21,39 @@ function App() {
     getTasks();
   }, []);
 
-  // Fetch data from server
+  // Fetch Tasks from server
   const fetchTasks = async () => {
     const res = await fetch(url);
-    const data = await res.json();
+    const tasks = await res.json();
 
-    return data;
+    return tasks;
+  }
+
+  // Fetch Task
+  const fetchTask = async (id) => {
+    const res = await fetch(url + `/${id}`);
+    const task = await res.json();
+
+    return task;
   }
 
   // Add Task
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 1000) + 1;
-    const newTask = { id, ...task };
-    setTasks([...tasks, newTask]);
+  const addTask = async (task) => {
+    // const id = Math.floor(Math.random() * 1000) + 1;
+    // const newTask = { id, ...task };
+    // setTasks([...tasks, newTask]);
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(task),
+    })
+
+    const data = await res.json();
+
+    setTasks([...tasks, data]);
   }
 
   // Delete Task
@@ -46,8 +66,21 @@ function App() {
   }
 
   // Toggle Reminder by double clicking
-  const toggleReminder = (id) => {
-    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder} : task));
+  const toggleReminder = async (id) => {
+    const taskToToggle = await fetchTask(id);
+    const updatedTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
+
+    const res = await fetch(url + `/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(updatedTask),
+    });
+
+    const data = await res.json();
+
+    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: data.reminder} : task));
   }
 
   return (
