@@ -8,6 +8,7 @@ Start DB Server
 Start Application
 `npm start`
 
+### Features
 1. Add task with text and day and reminder.
 2. Update reminder by double clicking task.
 3. Delete task by clicking button.
