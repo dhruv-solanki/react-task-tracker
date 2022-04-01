@@ -3,31 +3,31 @@ import { Header } from './Components/Header';
 import { Tasks } from './Components/Tasks';
 import { AddTask } from './Components/AddTask';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
 
-  const [tasks, setTasks] = useState([
-    {
-        id: 1,
-        text: 'Learn ReactJS',
-        day: 'March 31, 2022 at 5:00 PM',
-        reminder: true,
-    },
-    {
-        id: 2,
-        text: 'Read a new book',
-        day: 'March 30, 2022 at 09:30 AM',
-        reminder: false,
-    },
-    {
-        id: 3,
-        text: 'Do some Sketch Practice',
-        day: 'March 31, 2022 at 10:00 AM',
-        reminder: true,
+  const [tasks, setTasks] = useState([]);
+
+  const url = 'http://localhost:5000/tasks';
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks();
+      setTasks(tasksFromServer);
     }
-  ]);
+
+    getTasks();
+  }, []);
+
+  // Fetch data from server
+  const fetchTasks = async () => {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    return data;
+  }
 
   // Add Task
   const addTask = (task) => {
