@@ -1,22 +1,16 @@
 {
   "tasks": [
     {
-        "id": 1,
-        "text": "Learn ReactJS",
-        "day": "March 31, 2022 at 5:00 PM",
-        "reminder": true
+      "id": 1,
+      "text": "Learn ReactJS",
+      "day": "March 31, 2022 at 5:00 PM",
+      "reminder": true
     },
     {
-        "id": 2,
-        "text": "Read a new book",
-        "day": "March 30, 2022 at 09:30 AM",
-        "reminder": false
-    },
-    {
-        "id": 3,
-        "text": "Do some Sketch Practice",
-        "day": "March 31, 2022 at 10:00 AM",
-        "reminder": true
+      "id": 2,
+      "text": "Read a new book",
+      "day": "March 30, 2022 at 09:30 AM",
+      "reminder": false
     }
   ]
 }

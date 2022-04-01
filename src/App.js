@@ -37,7 +37,11 @@ function App() {
   }
 
   // Delete Task
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    await fetch(url + `/${id}`, {
+      method: 'DELETE',
+    });
+    
     setTasks(tasks.filter((task) => task.id !== id));
   }
 
