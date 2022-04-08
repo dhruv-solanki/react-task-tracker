@@ -5,7 +5,7 @@ import App from './App';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import store from './Components/store/store';
+import store from './store/store';
 import { Provider } from 'react-redux';
 
 ReactDOM.render(
