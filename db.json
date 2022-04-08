@@ -1,16 +1,10 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Learn ReactJS",
-      "day": "March 31, 2022 at 5:00 PM",
-      "reminder": true
-    },
-    {
       "text": "Complete ReactJS crash course.",
       "day": "Friday, 6:00 PM",
-      "reminder": false,
-      "id": 2
+      "reminder": true,
+      "id": 1
     }
   ]
 }
